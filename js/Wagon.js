@@ -1,27 +1,21 @@
-class Traveler {
-    constructor (nome) {
-        this.name = nome
-        this.qtfood = 1
-        this.isHealthy = true
-    }
-
-    hunt = () => {
-        return this.qtfood += 2
-    }
-
-    eat = () => {
-        if (this.qtfood > 0) {
-            return this.qtfood--
-        } else {
-            return this.isHealthy = false
-        }
-    }
-}
-
 class Wagon {
     constructor (capacity) {
-        this.capacity = capacity
-        this.passageiros = []
+        this._capacity = capacity
+        this._passageiros = []
+    }
+
+    set capacity(capacity) {
+        this._capacity = capacity
+    }
+    get capacity() {
+        return this._capacity
+    }
+
+    set passageiros(passageiros) {
+        this._passageiros = passageiros
+    }
+    get passageiros() {
+        return this._passageiros
     }
 
     getAvailableSeatCount = () => {
@@ -50,4 +44,4 @@ class Wagon {
             return acc + viajante.qtfood
         }, 0)
     }
-}   
+}
